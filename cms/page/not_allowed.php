@@ -1,0 +1,1 @@
+<p align="center" style="color:red;font: bold 35px tahome;"> Sizin bu səhifəyə giriş izniniz yoxdu ! </p>

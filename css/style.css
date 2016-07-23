@@ -1,0 +1,369 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family: 'Lora', serif;
+}
+.telephone i{
+
+	color:white;
+	background-color: blue;
+	border-radius: 100%;	
+	padding: 5px;
+
+}
+.telephone span{
+	font-size: 21px;
+	color: white;
+	 font-family: 'Lora', serif;
+	 margin-top: 10px;
+	 margin-left: 5px;
+
+}
+
+.telephone{
+	margin-top: 10px;
+	position: relative;
+}
+
+.header{
+	background-color: #666666;
+	height: 117px !important;
+}
+.navbar{
+	margin-top: 5px;
+	z-index: 1;
+}
+.navbar-default{
+	background-color: #343434 !important;
+	border-color:#343434 !important;
+	border-radius: 0% !important;
+}
+.navbar ul li a{
+	color: white !important;
+	font-size: 18px;
+	font-family: 'Lora', serif;
+}
+input[type="search"]{
+	margin-top: -6px;
+	height: 35px!important;
+	border: none;
+	padding: 7px;
+	color: black;
+}
+.search{
+	position: relative;
+}
+.fa-search{
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	color: gray;
+}
+
+.find-house-selects ul li{
+	text-decoration: none;
+	/*float: left;*/
+}
+.search-house{
+	background-color: #666666;
+	min-height: 40px;
+}
+.search-house select{
+	padding: 5px;
+	width: 100% !important;
+	background-color: #343434;
+
+	color: white;
+	margin: 5px;
+
+}
+.clearFix{
+	clear: both;
+	width: 100%;
+	height: 1px;
+}
+.vip{
+	margin-top: 10px;
+	font-family: 'Lora', serif;
+	font-size: 17px;
+}
+
+.vip .col-md-2 .col-md-12{
+	padding: 0px !important;
+}
+.vip .col-md-2 {
+	padding: 5px !important;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.vip span{
+	font-size: 15px !important;
+	font-weight: bold;
+}
+.vip .col-md-7,.col-md-5{
+	padding: 0px !important;
+}
+
+.vip .price{
+	color: red;
+}
+.vip h3{
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #666666;
+}
+.vip .info p{
+	border-bottom: 1px solid #666666;
+}
+.info p{
+	font-weight: bold;
+	color: #403E3E;
+}
+.info{
+	border-bottom: 1px solid lightgray;
+}
+.vip img{
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+.premium{
+	margin-top: 9px;
+}
+.premium h2{
+	text-align: center;
+	color: maroon;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 24px;
+}
+.premium img{
+	width: 100%;
+	height: auto;
+	margin-left: .5px;
+	margin-top: .5px;
+}
+.more{
+
+	color: maroon;
+
+	text-align: center;
+	border-bottom: 3px solid maroon;
+
+}
+.more a{
+	color: maroon !important;
+	font-weight: bold;
+	font-size: 25px;
+
+}
+.more a:hover{
+	border: none;
+	color: #960C23;
+}
+.bgcolor{
+	background-color: #666666;
+}
+.more h2{
+font-size: 20px;
+text-transform: none;
+}
+.premium .col-md-12{
+	/*border: 1px solid lightgray;*/
+	/*border-radius: 5px;*/
+}
+.premium .col-md-12 .col-md-12 {
+	padding: 0px !important;
+}
+.premium .col-md-3{
+	border-right: 1px solid lightgray;
+
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.premium .col-md-3:first-child{
+	border-left: 1px solid lightgray;	
+}
+.premium .col-md-3:nth-child(5n){
+	border-left: 1px solid lightgray;	
+}
+.clearFix2{
+	clear: both;
+	width: 100%;
+	height: 2px;
+	margin: 5px 0 5px 0;
+	background-color: maroon;
+}
+.add-advertisement input{
+		padding: 3px;
+	width: 95% !important;
+
+	margin-top:4px;
+
+}
+.qaydalar{
+	border-bottom: 1px solid black;
+}
+.qaydalar-t p{
+	color: maroon !important;
+}
+textarea{
+	width: 60%;
+	height: 200px;
+}
+.add-advertisement .search-house{
+background-color: white;
+
+}
+
+.add-advertisement .lightgray{
+	width: 100%;height: auto;
+	border: 1px solid lightgray;
+		background-color: lightgray;
+}
+.add-advertisement select,input{
+	background-color: white;
+	color: black;
+	font-weight: bold;
+}
+.add-advertisement p {
+color: black;
+font-weight: bold;
+margin-top: 12px;
+font-size: 14
+}
+.add-button-left input{
+	width: 90%;	
+}
+.rules-photo-border{
+	border: 2px solid maroon;
+	border-radius: 5px;
+}
+.input[type="file"]{
+	float: left;
+}
+.carousel img{
+	width: 100% !important;
+	height: 400px !important;
+}
+.sticker-code span{
+	color:gray;
+	font-weight: bold;
+}
+.clearFix3{
+height: 10px;
+width: 100%;
+clear: both;
+}
+.look-count span{
+	color: red;
+	font-weight: bold;
+}
+.look-count img{
+	width: 25px;
+	height: 20px !important;
+
+}
+.color-gray{
+	color: gray;
+}
+.color-gray{
+	color: gray;
+}
+.color-red{
+	color: red;
+}
+.price span{
+	font-size: 17px;
+}
+.person-button{
+	background-color: #666666;
+	color: white;
+	font-size: 19px;
+	text-align: center;
+}
+
+.bold-gray{
+	color: #666666;
+	font-weight: bold;
+	font-size: 14px;
+}
+.home h2{
+	border-bottom: 3px solid maroon;
+}
+input[type="submit"]{
+	padding: 10px;
+	background-color: maroon;
+	color: white;
+	font-size: 20px;
+}
+.search-house input[type="submit"]{
+	width: 100%;
+	background-color: #343434;
+	height: 30px;
+	font-size: medium;
+	font-family: 'Lora' , serif;
+	padding: 3px;
+	margin: 5px;
+	border:none;
+}
+	#kiraye-dovru{
+		display: none;
+	}
+	#emlak-senedi{
+		display: none;
+	}
+	#emlak-kredit{
+		display: none;
+	}
+	.required{
+		color: red;
+	}
+label{
+	color:maroon;
+}
+#mertebe,#mertebe1,#mertebe2{
+	display: none;
+}
+.footer{
+	margin-top: 10px;
+	width: 100%;
+	height: 200px;
+	background-color: #252525;
+}
+.footer p{
+	color: white;
+	text-align: center;
+	font-family: 'Lora' ,serif;
+	line-height: 190px;
+}
+@media screen and  (min-width: 768px){
+
+	.navbar-default{
+		max-height: 30px !important;
+	}
+}
+@media screen and  (max-width: 768px){
+	.telephone,.logo{
+		text-align: center !important; 
+	}
+
+textarea{
+		width: 100%;
+	}
+	.carousel img{
+	height: 300px !important;
+}
+}
+#sonuclar img{
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+}
+.yukle input{
+	text-align: left;
+	width: 100px !important;
+
+}

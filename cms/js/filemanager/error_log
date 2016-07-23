@@ -1,0 +1,18 @@
+
+[20-Apr-2015 02:16:35] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 02:16:44] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 02:17:56] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:23:59] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:30:31] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:37:13] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:39:12] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:48:05] PHP Parse error:  syntax error, unexpected $end in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 1
+[20-Apr-2015 09:51:29] PHP Parse error:  syntax error, unexpected T_ELSE in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 49
+[20-Apr-2015 09:52:34] PHP Parse error:  syntax error, unexpected T_ELSE in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 49
+[20-Apr-2015 09:53:04] PHP Parse error:  syntax error, unexpected T_ELSE in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 49
+[20-Apr-2015 09:56:30] PHP Parse error:  syntax error, unexpected T_ELSE in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 49
+[21-Apr-2015 09:37:53] PHP Warning:  chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 56
+[21-Apr-2015 09:38:36] PHP Warning:  chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 56
+[21-Apr-2015 09:39:11] PHP Warning:  chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 56
+[21-Apr-2015 09:39:59] PHP Warning:  chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 56
+[21-Apr-2015 09:40:32] PHP Warning:  chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory in /home6/azimetia/public_html/cms/js/filemanager/upload.php on line 56

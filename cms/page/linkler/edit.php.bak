@@ -1,0 +1,115 @@
+<?PHP
+	if($send){
+		
+		global $site_dir;
+
+		$query = "UPDATE topslider set ";
+
+			$rnd=rand(10000,99999);
+			$faylinozu = $_FILES['img']['tmp_name'];
+			$faylinadi = $_FILES['img']['name'];
+			
+			if(!empty($_FILES['img']['name'])){
+			$r = mysql_query("select * from topslider where u_id='$id'");
+			$q = mysql_fetch_object($r);
+				move_uploaded_file($faylinozu, "../topslider/". $rnd.$faylinadi);
+				include_once 'SimpleImage.php';
+				$image = new SimpleImage();
+				$image->load("../topslider/". $rnd.$faylinadi);
+				$image->resize(986,305);
+				$image->save("../topslider/". $rnd.$faylinadi);
+					if(empty($faylinadi)){
+					$query .= "foto='$faylinadi'";
+					}
+					else{
+					$query .= "foto='$rnd$faylinadi',";
+					}
+			}
+
+
+		$query .= " tip='0' where u_id='$id'";
+		MYSQL_QUERY($query);
+
+		$select = mysql_query("select foto from topslider where u_id='$id' and l_id='1'");
+		$nselect = mysql_fetch_assoc($select);
+
+		$hidsay = $_POST['hidsay'];
+		$blank = $_POST['blank'];
+		if($blank){ $blank=1; }
+		else{ $blank=0; }
+
+		for($i=1; $i<= $hidsay; $i++ ){
+			
+			$url[$i]= $_POST['url'.$i];
+
+			
+			$update = "UPDATE topslider SET url = '".$url[$i]."', foto = '".$nselect['foto']."', blank='".$blank."' WHERE u_id='".$id."' AND l_id='".$i."'";
+			mysql_query($update);
+		}
+		
+		if($update){
+			echo "<br><br><center><b><font size='4' color='red'> Redakte olundu! </font></b></center></br><br>
+			<script>
+			function redi(){
+			document.location='?menu=topslider'
+			}
+			setTimeout(\"redi()\", 3000);
+			</script>"; 
+		}
+	}
+	else {
+		?>
+			<table cellpadding="0" cellspacing="0" border="0" align="center">
+				<tr>
+					<td style="background-color: #FFFFFF;"><center><b>Səhifəni redaktə et</b></center></td>
+				</tr>
+				<?PHP
+					$id = $_GET['id'];
+					
+					$s_redakte = MYSQL_QUERY("SELECT * FROM topslider WHERE u_id='".$id."'");
+					$n_redakte = MYSQL_FETCH_ARRAY($s_redakte);
+					?>
+					<tr>
+						<td><img src="../topslider/<?PHP echo $n_redakte['foto'];?>" width="200" border="0" /></td>
+					</tr>
+					<tr>
+						<td><b>Şəkli seç (955 X 357):</b><br><input type="file" name="img" style="width:400px;"/></td>
+					</tr>
+					<tr>
+						<td height="10" style="background-color: #FFFFFF;"></td>
+					</tr>
+					<?PHP
+					$sl = MYSQL_QUERY("SELECT * FROM langs WHERE status='0'");
+					$say = mysql_num_rows($sl);
+					?>
+					<input type="hidden" name="hidsay" value="<?PHP echo $say; ?>" />
+					<?PHP
+					while($nl = MYSQL_FETCH_ARRAY($sl)){
+					$s_redakte1 = MYSQL_QUERY("SELECT * FROM topslider WHERE l_id='".$nl['id']."' AND u_id='".$id."'");
+					$n_redakte1 = MYSQL_FETCH_ARRAY($s_redakte1);
+					?>
+					<tr>
+						<td><b>[ Url <?PHP echo $nl['lang']; ?> ]</b><br><input name="url<?PHP echo $nl['id']; ?>" style="width:500px;" value="<?PHP echo $n_redakte1['url']; ?>"></td>
+					</tr>
+					<tr>
+						<td height="10" style="background-color: #FFFFFF;"></td>
+					</tr>
+					<?PHP
+						}
+					?>
+					<tr>
+						<td height="20" style="background-color: #FFFFFF;"></td>
+					</tr>
+					<tr>
+						<td><b>[ Yeni pəncərə ]</b><br><input type="checkbox" name="blank" <?PHP if($n_redakte['blank']=='1'){?>checked<?PHP }?>/></td>
+					</tr>
+					<tr>
+						<td height="20" style="background-color: #FFFFFF;"></td>
+					</tr>
+				<tr>
+					<td><input type="submit" name="send" value="Redaktə et"></td>
+				</tr>
+			</table>
+	<?PHP
+	}
+	?>

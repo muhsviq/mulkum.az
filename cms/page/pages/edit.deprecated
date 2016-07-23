@@ -1,0 +1,170 @@
+<?PHP
+	$id=$_GET['id'];
+	if($send){
+		
+		global $site_dir;
+		$query = "UPDATE menu set ";
+
+		$query .= " where u_id='".$id"'";
+		MYSQL_QUERY($query);
+
+		$hidsay = $_POST['hidsaysay'];
+		
+
+		for($i=1; $i<= $hidsay; $i++ ){
+			
+			$linkname[$i]= $_POST['linkname'.$i];
+			$title[$i]= $_POST['title'.$i];
+			$name[$i]= $_POST['name'.$i];
+			$text[$i]= $_POST['text'.$i];
+			$sub	= $_POST['sub'];
+
+			
+			$update = 'UPDATE menu SET sub_id = '.$sub.', name = '.$name[$i].', text = '.$text[$i].', tip = '.$tip.', title = '.$title[$i].', linkname = '.$linkname[$i].' WHERE u_id='.$id.' AND l_id='.$i;
+			mysql_query($update);
+		}
+		if($update){
+			echo "<br><br><center><b><font size='4' color='red'> Redakte olundu! </font></b></center></br><br>
+			<script>
+			function redi(){
+			document.location='?menu=pages'
+			}
+			setTimeout(\"redi()\", 3000);
+			</script>"; 
+		}
+		
+	}
+	else { ?>
+		<form name="form1" method="post" action="">
+			<table cellpadding="0" cellspacing="0" border="0" align="center">
+				<tr>
+					<td style="background-color: #FFFFFF;"><center><b>Səhifəni redaktə et</b></center></td>
+				</tr>
+				<tr>
+					<td>
+
+						Menu:<br>
+						<?PHP
+							$s_redakte1=MYSQL_QUERY('SELECT * FROM menu WHERE u_id='.$id);
+							$n_redakte1=MYSQL_FETCH_ARRAY($s_redakte1);
+							$sub_halhazira=$n_redakte1['sub_id'];
+							$sub_halhazira1='100';
+						?>
+						<select name="sub">
+						<option value="0"  <?PHP if($sub_halhazira=='0'){ ?>selected="selected"<?PHP } ?>>Əsas menu</option>
+						<?PHP
+							$s_sub = MYSQL_QUERY('SELECT * FROM menu WHERE ln_id="1" ORDER BY ordering ASC ');
+							while($b=MYSQL_FETCH_ASSOC($s_sub))
+							{
+								echo'<option value="'.$b['u_id'].'">'.$b['name'].'</option>';
+							}
+						?>
+						</select>	
+						<br><br>
+					</td>
+				</tr>
+				<tr>
+					<td height="10" style="background-color: #FFFFFF;"></td>
+				</tr>
+					<tr>
+						<td>
+							<link rel="stylesheet" href="js/jquery-ui.css">
+							<script src="js/jquery-ui.js"></script>
+							<script type="text/javascript" src="<?PHP echo $sayt_url;?>js/tiny_mce/tinymce.min.js"></script>
+							<style type="text/css">
+								#tab_li{
+									float:left;
+									margin: 5px;
+									border:1px solid #ccc;
+									border-radius: 5px;
+								}
+							</style>
+							<script type="text/javascript">
+								tinymce.init({
+								    selector: "textarea",
+								    plugins : 'advlist contextmenu hr anchor pagebreak directionality emoticons paste textcolor responsivefilemanager autolink link image lists charmap print preview table searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking ',
+								    object_resizing : "img",
+								    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+								    toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+								    image_advtab: true ,
+								    external_filemanager_path:"<?PHP echo $sayt_url;?>js/filemanager/",
+								    filemanager_title:"Responsive Filemanager" ,
+								    external_plugins: { "filemanager" : "../filemanager/plugin.min.js"},
+								    element_format : "html",
+								    font_formats: "Andale Mono=andale mono,times;"+
+											        "Arial=arial,helvetica,sans-serif;"+
+											        "Arial Black=arial black,avant garde;"+
+											        "Book Antiqua=book antiqua,palatino;"+
+											        "Comic Sans MS=comic sans ms,sans-serif;"+
+											        "Courier New=courier new,courier;"+
+											        "Georgia=georgia,palatino;"+
+											        "Helvetica=helvetica;"+
+											        "Impact=impact,chicago;"+
+											        "Symbol=symbol;"+
+											        "Tahoma=tahoma,arial,helvetica,sans-serif;"+
+											        "Terminal=terminal,monaco;"+
+											        "Times New Roman=times new roman,times;"+
+											        "Trebuchet MS=trebuchet ms,geneva;"+
+											        "Verdana=verdana,geneva;"+
+											        "Webdings=webdings;"+
+											        "Wingdings=wingdings,zapf dingbats",
+									protect: [
+										        /\<\/?(if|endif)\>/g, // Protect <if> & </endif>
+										        /\<xsl\:[^>]+\>/g, // Protect <xsl:...>
+										        /<\?php.*?\?>/g // Protect php code
+	    									]
+								 });
+							</script>
+							<div id="tabs">
+								<ul id="tabs_ul">
+								<?PHP
+									$say=1;
+									$sl = MYSQL_QUERY("SELECT * FROM langs WHERE status='0' ORDER BY id ASC");
+									$hidsaysay=mysql_num_rows($sl);
+									$s_redakte = MYSQL_QUERY("SELECT * FROM menu WHERE u_id='".$id."'");
+									$n_redakte = MYSQL_FETCH_ARRAY($s_redakte);
+									while($nl = MYSQL_FETCH_ARRAY($sl)){
+									
+								?>
+									<li id="tab_li"><a href="#tabs-<?PHP echo $say; ?>"><b><?PHP echo $nl['lang']; ?></b></a></li>
+								<?PHP
+									$say+=1;
+									}
+									
+								?>	
+								</ul>
+
+								<?PHP
+									$say=1;
+									$sl = MYSQL_QUERY("SELECT * FROM langs WHERE status='0'");
+									while($nl = MYSQL_FETCH_ARRAY($sl)){
+									
+								?>
+								<div id="tabs-<?PHP echo $say; ?>">
+								Ad: <input name="name<?PHP echo $nl['id']; ?>" style="width:500px;" value="<?PHP echo $n_redakte['name'];?>"><br><br>
+								Title: <input name="title<?PHP echo $nl['id']; ?>" style="width:500px;" value="<?PHP echo $n_redakte['title'];?>"><br><br>
+								Linkname: <input name="linkname<?PHP echo $nl['id']; ?>" style="width:500px;" value="<?PHP echo $n_redakte['linkname'];?>"><br><br>
+								Text:<textarea name="text<?PHP echo $nl['id']; ?>" style="width:500px; height:200px;" value="<?PHP echo $n_redakte['text'];?>"></textarea>
+								</div>
+								<?PHP
+									$say+=1;
+									}
+								?>	
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td height="20" style="background-color: #FFFFFF;"></td>
+					</tr>
+				<tr>
+					<td><input type="submit" name="send" value="Redaktə et"></td>
+				</tr>
+			</table>
+		</form>
+		<?PHP } ?>
+		
+				<script>
+				  $(function() {
+				    $("#tabs").tabs();
+				  });
+				</script>
